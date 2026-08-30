@@ -20,76 +20,88 @@
     <main>
       <h2>MoraTea</h2>
 
+      <p>What MoraTea actually is, in one sentence.</p>
       <p>
-        MoraTea is a managed reliability and operations platform for business
-        automations. It is built around a customized Activepieces Community
-        Edition, not around a point-of-interest application. The problem is the
-        operational gap between drafting a workflow and trusting it in
-        production: a small logic change can create a wrong invoice, duplicate
-        an action, or leave an operator unsure which version actually ran.
+        MoraTea is basically a business automation software with a focus on
+        reliability and safety, integrated with AI.
       </p>
 
       <p>
-        The idea began with recurring gather, compare, review, and action
-        workflows. Reconciling points of interest was one early use case, but
-        the broader problem was making repeated business automation observable,
-        reviewable, and recoverable.
+        Why you started it: the POI reconciliation / business automation
+        problem you encountered.
+      </p>
+      <p>
+        I started it because I realised that a lot of people are paying for
+        specific automation tooling from freelancers or automation firm, but
+        more often than not, they already have their own IT employees. The only
+        issue was that existing no-code solutions like n8n and Activepieces,
+        they don't have any obvious direct endpoint to connect with AI. Then,
+        introducing AI also opens up a can of worms on safety and reliability.
       </p>
 
-      <h3>Current implementation</h3>
+      <p>What the original workflow looked like before MoraTea.</p>
       <p>
-        The current codebase is a Rust control plane beside an isolated
-        Activepieces execution stack. A customer stack uses separate
-        Activepieces App and Worker containers with PostgreSQL and Redis. MoraTea
-        keeps its own account-scoped control store in SQLite and an artifact
-        store for canonical workflow bytes. It drives Activepieces through
-        supported interfaces and does not write to the Activepieces database
-        directly. Activepieces keeps its normal draft-versus-published model:
-        edits can continue on a draft while the published version serves
-        production.
+        Initially, I was thinking about one singular platform controlling and
+        routes the user separate VPS instances of their own Activepieces, then
+        I realised I literally do not need a whole platform at all, since I'm
+        only serving a handful of clients.
+      </p>
+
+      <p>The specific annoying parts you wanted to automate.</p>
+      <p>
+        I wanted to create a more direct and straightforward way to allow AI
+        to move and connect nodes together. Instead of asking into a chat
+        interface, you'd just launch Codex, Claude Code, or whatever other
+        coding harness you use in order to manipulate your nodes.
+      </p>
+
+      <p>Why you chose Activepieces instead of n8n.</p>
+      <p>
+        n8n had strict commercial usage, I wasn't about to deal with that.
+        Plus, turns out Activepieces had more things built in, which let me
+        avoid implementing things like commit, version control, those type of
+        things manually.
+      </p>
+
+      <p>Why you are building your own control/reliability layer around it.</p>
+      <p>
+        I built my own control and reliability layer around it because it's
+        really not obvious nor safe if we were to use it directly. You may have
+        a broken version, and when you want to rollback? Nope! Impossible!
+        That's why I'm implementing a versioning system.
+      </p>
+
+      <p>The current architecture is like so:</p>
+      <ul>
+        <li>React frontend</li>
+        <li>Rust control plane</li>
+        <li>Activepieces</li>
+        <li>SQLite</li>
+      </ul>
+
+      <p>
+        The technical decision that makes this product stand out is that the
+        versioning is a first class system. Before you can run your workflow,
+        you MUST commit, which makes you backup. For security, reliability, and
+        safety, there will be a separate agent that will clone your workflow
+        and stress-test the hell out of it, in order to make sure things
+        idempotent, failure-tolerant, and whatnot. This loop actually puts the
+        workflow to the test, and makes it much more reliable.
       </p>
 
       <p>
-        The Rust service currently contains the release and reliability
-        boundaries: immutable candidate snapshots, logic and binding identity,
-        evidence, approvals, deployment history, production pointers, audit
-        records, and rollback lineage. Release jobs recover after interruption
-        and external state is read back rather than blindly retried when an
-        outcome is uncertain. The dashboard exposes authenticated workflow,
-        evidence, release, and operations views. A narrow editor handoff connects
-        an owned MoraTea workflow to the matching Activepieces editor without
-        forwarding MoraTea credentials.
+        During this time while trying to turn it into an actual product, I
+        found that it's actually incredibly difficult to create an
+        enterprise-grade software. The amount of things you have to keep in mind
+        is mindboggling.
       </p>
 
-      <h3>Reliability work</h3>
       <p>
-        Testing is risk-aware rather than a single generic pass. Read-only
-        observations and reversible operations can use a lighter test path.
-        Database writes, deletes, outbound messages, payments, permission
-        changes, and production deployments need stronger isolation, explicit
-        evidence, and human approval. The current reliability path includes
-        deterministic scenarios, a mock accounting oracle, candidate claims,
-        append-only evidence, and release execution against an exact draft.
-        A candidate is only publishable after its artifact, required scenarios,
-        approval, and current Activepieces readback still agree.
-      </p>
-
-      <h3>Work ahead</h3>
-      <p>
-        MoraTea remains active development. Current work is tightening the
-        control and reliability loops, operations evidence, failure recovery,
-        and the boundary between authoring, testing, approval, and release.
-        Longer-term architecture may add more customer workflow cases and
-        operational capacity, but the project is deliberately not claiming a
-        universal automation operating system or a synthetic reliability score.
+        It's still in the MVP-phase, the thing that's working right now is
+        that you can actually define your user's workflow now...
       </p>
 
       <p>Status: Active development.</p>
-      <p>
-        Built with Rust, Tokio, SQLite, PostgreSQL, Redis, a static dashboard,
-        and a customized Activepieces fork.
-      </p>
-
       <p><a href="/work/">Back to work</a></p>
     </main>
   </body>
