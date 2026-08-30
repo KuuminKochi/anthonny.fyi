@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Circuit Sim is an early Rust project for learning how circuit analysis and numerical simulation are assembled." />
+    <link rel="canonical" href="https://anthonny-fyi.pages.dev/work/circuit-sim/" />
     <title>Circuit Sim | Anthonny Ng</title>
     <link href="/css/style.css" rel="stylesheet" />
   </head>
@@ -14,23 +16,70 @@
 
     <main>
       <h2>Circuit Sim</h2>
-      <p>
-        Circuit Sim is an experimental circuit simulator written in Rust and
-        developed from first principles while studying electrical engineering.
-      </p>
-
-      <p>Status: Early development.</p>
-
-      <p>Technologies:</p>
-      <ul>
-        <li>Rust</li>
-      </ul>
 
       <p>
-        Motivation: The project is for learning how circuit simulators work, including
-        circuit and node representation, Kirchhoff's laws, linear systems,
-        numerical solving, nodal analysis, and modified nodal analysis.
+        Circuit Sim is an early Rust electrical-engineering learning project.
+        It is not intended to compete with LTspice or serve as a production
+        circuit design tool. The point is to understand the path from a circuit
+        description to numbers that can be inspected, rather than hiding that
+        path behind a mature simulator. Learning from first principles matters
+        because each equation and assumption remains visible: a learner can
+        connect a circuit description to conservation laws, then to a numerical
+        result, and inspect where a mistaken assumption enters. The emphasis is
+        understanding the reasoning, not treating a simulator as a black box.
       </p>
+
+      <h3>The engineering problem</h3>
+      <p>
+        A simulator has to turn components and their connections into a
+        well-defined mathematical problem. A resistor, voltage source, or other
+        component contributes relationships between nodes. Nodes identify
+        connection points, while branches represent component paths between
+        them. Voltage and current sign conventions must be chosen and kept
+        consistent; reversing one convention changes the equations even when
+        the circuit drawing looks the same. The simulator must identify those
+        nodes, choose a consistent reference, assemble the component
+        contributions, solve the resulting system, and map the solution back to
+        voltages and currents. Each boundary is a useful place to learn because
+        an incorrect node identity or sign convention can produce
+        plausible-looking but wrong results.
+      </p>
+
+
+      <h3>Learning progression</h3>
+      <p>
+        The intended progression starts with a small circuit description and
+        explicit node and component representations. From there, Kirchhoff's
+        Current Law and Kirchhoff's Voltage Law provide the equations: KCL
+        describes current balance at nodes, while KVL describes the voltage
+        relationships around branches and loops. Nodal analysis expresses
+        unknown node voltages from current balance. Modified Nodal Analysis
+        extends the system so voltage sources and other elements that do not
+        fit a simple nodal admittance contribution can be represented with
+        additional unknowns and equations.
+      </p>
+
+      <p>
+        The next steps are matrix or linear-system assembly, a numerical solve,
+        and a result mapping layer that reports node voltages and component
+        currents in the terms used by the original circuit. Small hand-checkable
+        examples are more valuable here than a large component catalogue: they
+        make conservation laws, units, singular systems, and reference-node
+        choices visible.
+      </p>
+
+      <h3>Scope and status</h3>
+      <p>
+        The project is intentionally early. Parsing, stamping, solving, and a
+        particular component model are learning targets rather than completed
+        features claimed here. Those boundaries describe the current direction:
+        Rust is a bridge between systems programming and electrical engineering
+        in this project, while electrical-engineering concepts remain the
+        primary constraint.
+      </p>
+
+      <p>Status: Early development, learning project.</p>
+      <p>Built with Rust.</p>
 
       <p><a href="/work/">Back to work</a></p>
     </main>

@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A factual timeline of Anthonny Ng's education, projects, leadership, and university milestones."
+    />
+    <link rel="canonical" href="https://anthonny-fyi.pages.dev/timeline/" />
     <title>Timeline | Anthonny Ng</title>
     <link href="/css/style.css" rel="stylesheet" />
   </head>
@@ -13,106 +18,97 @@
     </header>
 
     <main>
-      <p>You can simply copy and paste these into your ChatGPT.</p>
-      <button id="copy-timeline" type="button">Copy all</button>
+      <h2>Timeline</h2>
 
-      <div id="timeline">
-
-      <h2>2025</h2>
+      <h3>2023</h3>
       <ul>
         <li>
-          June 2025: Entered the Foundation in Physical Sciences programme at
+          2023 – Worked on and released Mis1nf0, an educational Godot visual
+          novel and strategy game about misinformation and media literacy.
+        </li>
+      </ul>
+
+      <h3>2024</h3>
+      <ul>
+        <li>
+          September 2024 – Released I'll Think of a Name Later, a short
+          solo visual-novel/RPG prototype used to experiment.
+        </li>
+      </ul>
+
+      <h3>2025</h3>
+      <ul>
+        <li>
+          June 2025 – Entered the Foundation in Physical Sciences programme at
           the Centre for Foundation Studies in Science, Universiti Malaya
           (PASUM).
         </li>
         <li>
-          July 2025: Appointed Lecture Group Leader and Tutorial Group Leader at
-          PASUM.
+          July 2025 – Appointed Lecture Group Leader and Tutorial Group Leader
+          at PASUM.
         </li>
         <li>
-          August 2025: Competed in the Nuclear Youth Competition 2025, placed
+          August 2025 – Competed in the Nuclear Youth Competition 2025, placed
           2nd, and received Group MVP.
         </li>
         <li>
-          August 2025: Participated in the International Nuclear Science,
+          August 2025 – Participated in the International Nuclear Science,
           Technology and Engineering Conference 2025.
         </li>
         <li>
-          Sep 2025 to May 2026: Served as Showrunner, Editor and Director for
-          PASUM's Multimedia and Creative Content Unit.
+          September 2025 – May 2026 – Served as Showrunner, Editor and Director
+          for PASUM's Multimedia and Creative Content Unit.
         </li>
         <li>
-          Sep 2025 to May 2026: Served as Student Representative for F2 Lecture
-          Hall.
+          September 2025 – May 2026 – Served as Student Representative for F2
+          Lecture Hall.
         </li>
         <li>
-          Sep 2025 to Jan 2026: Built MimiBot, a Telegram AI assistant for PASUM
-          studies.
+          September 2025 – January 2026 – Built MimiBot, a Telegram AI
+          assistant for PASUM studies.
         </li>
         <li>
-          Dec 2025 to Jan 2026: Built Mimi-CLI, an extensible AI assistant with
-          memory and modular tooling.
+          December 2025 – January 2026 – Built Mimi-CLI, an extensible AI
+          assistant with memory and modular tooling.
         </li>
         <li>
-          Semester 1: GPA: 3.95 / 4.00. CGPA: 3.95 / 4.00. Three-best-subject
+          Semester 1 – GPA: 3.95 / 4.00; CGPA: 3.95 / 4.00; three-best-subject
           CGPA: 4.00 / 4.00.
         </li>
       </ul>
 
-      <h2>2026</h2>
+      <h3>2026</h3>
       <ul>
-        <li>January 2026: Achieved MUET Band 4.5.</li>
+        <li>January 2026 – Achieved MUET Band 4.5.</li>
         <li>
-          2026: Led development and documentation for PASUM Pressure, a
+          2026 – Led development and documentation for PASUM Pressure, a
           seven-week C++17 team project.
         </li>
         <li>
-          Semester 2: GPA: 3.88 / 4.00. Final CGPA: 3.92 / 4.00. Final
-          three-best-subject CGPA: 4.00 / 4.00. Credits completed: 55.
+          Semester 2 – GPA: 3.88 / 4.00; final CGPA: 3.92 / 4.00;
+          final three-best-subject CGPA: 4.00 / 4.00; credits completed: 55.
         </li>
-        <li>June 2026: Joined AxisBridge as a Software Engineering Intern.</li>
+        <li>June 2026 – Joined AxisBridge as a Software Engineering Intern.</li>
         <li>
-          June 2026: Built and deployed DocFill, an internal document-automation
-          system.
-        </li>
-        <li>
-          June 2026: Worked on cloud infrastructure, document processing,
-          monitoring, and financial-data reconciliation.
+          June 2026 onward – Worked on internal document automation,
+          document-processing infrastructure, monitoring, and financial-data
+          reconciliation.
         </li>
         <li>
-          July 2026: Graduated from PASUM with a Foundation in Physical
-          Sciences.
+          July 2026 – Completed the Foundation in Physical Sciences at the
+          Centre for Foundation Studies in Science, Universiti Malaya (PASUM).
         </li>
         <li>
-          July 2026: Received A grades in Mathematics, Chemistry, Physics, and
-          Computer Science.
+          2026 – Began building MChan, a Malaysian higher-education platform
+          with a Rust backend, and led its system design.
         </li>
         <li>
-          2026: Began building MChan, a university community platform, and led
-          its backend and system design using Rust, Axum, SQLx, SQLite, and
-          Docker.
-        </li>
-        <li>
-          September 2026: Begin the Bachelor of Electrical Engineering programme
-          at Universiti Malaya.
+          September 2026 – Starting the Bachelor of Electrical Engineering
+          programme at Universiti Malaya.
         </li>
       </ul>
-      </div>
 
-      <script>
-        const copyButton = document.querySelector("#copy-timeline");
-
-        copyButton.addEventListener("click", async () => {
-          try {
-            await navigator.clipboard.writeText(
-              document.querySelector("#timeline").innerText,
-            );
-            copyButton.textContent = "Copied";
-          } catch {
-            copyButton.textContent = "Copy failed";
-          }
-        });
-      </script>
+      <p><a href="/">Back to home</a></p>
     </main>
   </body>
 </html>

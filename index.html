@@ -3,34 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Anthonny Ng's personal site and directory of current and earlier work."
+    />
+    <link rel="canonical" href="https://anthonny-fyi.pages.dev/" />
     <title>Anthonny Ng</title>
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
   </head>
 
-  <header>
-    <h1><a href="/">Anthonny.</a></h1>
-  </header>
-
   <body>
-    <p>Is this site work-in-progress? Nope, this is just what it looks like.</p>
+    <header>
+      <h1><a href="/">Anthonny.</a></h1>
+    </header>
 
-    <div class="tree">
-      <a href="/about/">▸ about/</a>
-      <a href="/timeline/">▸ timeline/</a>
+    <main>
+      <p>
+        Is this site work-in-progress? Nope, this is just what it looks like. I'm
+        Anthonny Ng Hon Wei, for visibility.
+      </p>
 
-      <details open>
-        <summary><a href="/work/">▾ work/</a></summary>
-        <div class="children">
-          <a href="/work/moratea/">▸ moratea/</a>
-          <a href="/work/mchan/">▸ mchan/</a>
-          <a href="/work/circuit-sim/">▸ circuit-sim/</a>
-        </div>
-      </details>
+      <nav class="tree" aria-label="Site navigation">
+        <a href="/about/">▸ about/</a>
+        <a href="/timeline/">▸ timeline/</a>
 
-      <a href="https://github.com/KuuminKochi">↗ github</a>
-      <a href="https://x.com/kuuminda">↗ x</a>
-      <a href="https://www.instagram.com/kkkuumin/">↗ instagram</a>
-      <a href="https://www.youtube.com/kuumin">↗ youtube</a>
-    </div>
+        <details open>
+          <summary><a href="/work/">▾ work/</a></summary>
+          <div class="children">
+            <a href="/work/moratea/">▸ moratea/</a>
+            <a href="/work/mchan/">▸ mchan/</a>
+            <a href="/work/circuit-sim/">▸ circuit-sim/</a>
+            <details>
+              <summary><a href="/work/games/">▾ games/</a></summary>
+              <div class="children">
+                <a href="/work/games/mis1nf0/">▸ mis1nf0/</a>
+                <a href="/work/games/ill-think-of-a-name-later/"
+                  >▸ ill-think-of-a-name-later/</a
+                >
+              </div>
+            </details>
+            <details>
+              <summary><a href="/work/older/">▾ older/</a></summary>
+              <div class="children">
+                <a href="/work/older/pasum-pressure/">▸ pasum-pressure/</a>
+                <a href="/work/older/mimibot/">▸ mimibot/</a>
+                <a href="/work/older/mimi-cli/">▸ mimi-cli/</a>
+              </div>
+            </details>
+          </div>
+        </details>
+
+        <a href="https://github.com/KuuminKochi">↗ github</a>
+        <a href="https://x.com/kuuminda">↗ x</a>
+        <a href="https://www.instagram.com/kkkuumin/">↗ instagram</a>
+        <a href="https://www.youtube.com/kuumin">↗ youtube</a>
+      </nav>
+    </main>
   </body>
 </html>

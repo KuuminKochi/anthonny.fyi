@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="MChan is a server-rendered anonymous Malaysian higher-education imageboard with human moderation and a small Rust and SQLite stack."
+    />
+    <link rel="canonical" href="https://anthonny-fyi.pages.dev/work/mchan/" />
     <title>MChan | Anthonny Ng</title>
     <link href="/css/style.css" rel="stylesheet" />
   </head>
@@ -14,30 +19,79 @@
 
     <main>
       <h2>MChan</h2>
+
       <p>
-        <a href="https://mchan.fyi">MChan</a> is a pseudonymous community
-        platform for Malaysian university students, with boards, threads,
-        replies, moderation, and supporting operational systems.
+        <a href="https://mchan.fyi/">MChan</a> is a server-rendered anonymous
+        Malaysian higher-education imageboard. Visitors can read approved
+        boards, create text threads, reply anonymously, and report threads or
+        replies without normal user accounts. The engineering problem is to
+        keep an anonymous, inexpensive community useful without pretending that
+        anonymity removes abuse, moderation work, or operational responsibility.
       </p>
 
-      <p>Status: Active development / public beta.</p>
+      <p>
+        The current beta keeps public pages deliberately small: boards, thread
+        pages, anonymous text posting, thread-scoped public poster IDs, reports,
+        and read-only archives. Public readers do not receive accounts or
+        persistent pseudonyms. The application is server-rendered, so the core
+        experience does not depend on a frontend framework, Node, PostgreSQL,
+        Redis, or object storage.
+      </p>
 
-      <p>Technologies:</p>
-      <ul>
-        <li>Rust</li>
-        <li>Tokio</li>
-        <li>Axum</li>
-        <li>Askama</li>
-        <li>SQLx</li>
-        <li>SQLite</li>
-        <li>Docker</li>
-        <li>Cloudflare</li>
-        <li>GitHub Actions</li>
-      </ul>
+      <h3>Moderation and privacy</h3>
+      <p>
+        Human moderation is the authority. Protected web moderation provides
+        report queues and abuse-log views, while moderators can dismiss or
+        resolve reports and hide, remove, quarantine, lock, or pin content.
+        Admins can apply board and site bans; assigned board moderators are
+        limited to their boards and cannot perform every global action. These
+        transitions write atomic audit records instead of relying on a report
+        count to remove content automatically. Reports are rate-limited, and
+        public pages do not expose the restricted operational data used to
+        investigate abuse.
+      </p>
 
       <p>
-        Motivation: MChan is designed around lightweight, fast, server-rendered pages and
-        stronger moderation than traditional anonymous imageboards.
+        Post-origin records are encrypted, access to them is protected and
+        audited, and cleanup currently runs on a 30-day retention window. This
+        is separate from the public poster ID shown inside a thread. Cloudflare
+        Access identity is used for staff controls behind the isolated origin;
+        it does not create a browser session for ordinary readers or posters.
+      </p>
+
+      <h3>Small services, graceful degradation</h3>
+      <p>
+        The main application, <code>mchan-core</code>, is Rust with Tokio,
+        Axum, Askama, SQLx, and SQLite, packaged with Docker and deployed
+        behind Cloudflare. Optional services keep the base system usable when
+        they are absent. The <code>mchan-image</code> processor validates JPEG,
+        PNG, and WebP uploads; if it is disabled or unavailable, text-only
+        posting continues. Miya can allow, flag, or block text, but it never
+        replaces human moderation, and an unavailable screening service records
+        an audit note rather than silently blocking a post.
+      </p>
+      <p>
+        Optional companion services include <code>mchan-ops</code> for separate
+        operations tooling and <code>mchan-telegram</code> for Telegram tooling.
+        The <code>mchan-core</code> service also provides authenticated Discord
+        moderation and best-effort Discord report notifications. These support
+        staff workflows without becoming requirements for public reading.
+      </p>
+
+      <h3>Boundaries</h3>
+      <p>
+        MChan is open beta and active development. Accounts, persistent
+        pseudonyms, institutional verification, search, board proposals,
+        author deletion tokens, video or audio uploads, popularity metrics,
+        recommendation feeds, public moderator identities, and automated
+        report-count takedowns are not implemented. Those boundaries preserve a
+        cheap infrastructure target and keep moderation decisions explicit.
+      </p>
+
+      <p>Status: Open beta, active development.</p>
+      <p>
+        Source:
+        <a href="https://github.com/MChanTeam/mchan-core">MChanTeam/mchan-core</a>.
       </p>
 
       <p><a href="/work/">Back to work</a></p>
