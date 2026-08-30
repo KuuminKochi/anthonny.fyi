@@ -13,72 +13,106 @@
     </header>
 
     <main>
-      <p>Everything, in order.</p>
+      <p>You can simply copy and paste these into your ChatGPT.</p>
+      <button id="copy-timeline" type="button">Copy all</button>
+
+      <div id="timeline">
 
       <h2>2025</h2>
       <ul>
         <li>
-          June 2025: Entered the Foundation in Physical Sciences programme at the Centre for Foundation Studies in Science, Universiti Malaya (PASUM).
+          June 2025: Entered the Foundation in Physical Sciences programme at
+          the Centre for Foundation Studies in Science, Universiti Malaya
+          (PASUM).
         </li>
         <li>
-          July 2025: Appointed Lecture Group Leader and Tutorial Group Leader at PASUM.
+          July 2025: Appointed Lecture Group Leader and Tutorial Group Leader at
+          PASUM.
         </li>
         <li>
-          August 2025: Competed in the Nuclear Youth Competition 2025, placed 2nd, and received Group MVP.
+          August 2025: Competed in the Nuclear Youth Competition 2025, placed
+          2nd, and received Group MVP.
         </li>
         <li>
-          August 2025: Participated in the International Nuclear Science, Technology and Engineering Conference 2025.
+          August 2025: Participated in the International Nuclear Science,
+          Technology and Engineering Conference 2025.
         </li>
         <li>
-          Sep 2025 to May 2026: Served as Showrunner, Editor and Director for PASUM's Multimedia and Creative Content Unit.
+          Sep 2025 to May 2026: Served as Showrunner, Editor and Director for
+          PASUM's Multimedia and Creative Content Unit.
         </li>
         <li>
-          Sep 2025 to May 2026: Served as Student Representative for F2 Lecture Hall.
+          Sep 2025 to May 2026: Served as Student Representative for F2 Lecture
+          Hall.
         </li>
         <li>
-          Sep 2025 to Jan 2026: Built MimiBot, a Telegram AI assistant for PASUM studies.
+          Sep 2025 to Jan 2026: Built MimiBot, a Telegram AI assistant for PASUM
+          studies.
         </li>
         <li>
-          Dec 2025 to Jan 2026: Built Mimi-CLI, an extensible AI assistant with memory and modular tooling.
+          Dec 2025 to Jan 2026: Built Mimi-CLI, an extensible AI assistant with
+          memory and modular tooling.
         </li>
         <li>
-          Semester 1: GPA: 3.95 / 4.00. CGPA: 3.95 / 4.00. Three-best-subject CGPA: 4.00 / 4.00.
+          Semester 1: GPA: 3.95 / 4.00. CGPA: 3.95 / 4.00. Three-best-subject
+          CGPA: 4.00 / 4.00.
         </li>
       </ul>
 
       <h2>2026</h2>
       <ul>
+        <li>January 2026: Achieved MUET Band 4.5.</li>
         <li>
-          January 2026: Achieved MUET Band 4.5.
+          2026: Led development and documentation for PASUM Pressure, a
+          seven-week C++17 team project.
         </li>
         <li>
-          2026: Led development and documentation for PASUM Pressure, a seven-week C++17 team project.
+          Semester 2: GPA: 3.88 / 4.00. Final CGPA: 3.92 / 4.00. Final
+          three-best-subject CGPA: 4.00 / 4.00. Credits completed: 55.
+        </li>
+        <li>June 2026: Joined AxisBridge as a Software Engineering Intern.</li>
+        <li>
+          June 2026: Built and deployed DocFill, an internal document-automation
+          system.
         </li>
         <li>
-          Semester 2: GPA: 3.88 / 4.00. Final CGPA: 3.92 / 4.00. Final three-best-subject CGPA: 4.00 / 4.00. Credits completed: 55.
+          June 2026: Worked on cloud infrastructure, document processing,
+          monitoring, and financial-data reconciliation.
         </li>
         <li>
-          June 2026: Joined AxisBridge as a Software Engineering Intern.
+          July 2026: Graduated from PASUM with a Foundation in Physical
+          Sciences.
         </li>
         <li>
-          June 2026: Built and deployed DocFill, an internal document-automation system.
+          July 2026: Received A grades in Mathematics, Chemistry, Physics, and
+          Computer Science.
         </li>
         <li>
-          June 2026: Worked on cloud infrastructure, document processing, monitoring, and financial-data reconciliation.
+          2026: Began building MChan, a university community platform, and led
+          its backend and system design using Rust, Axum, SQLx, SQLite, and
+          Docker.
         </li>
         <li>
-          July 2026: Graduated from PASUM with a Foundation in Physical Sciences.
-        </li>
-        <li>
-          July 2026: Received A grades in Mathematics, Chemistry, Physics, and Computer Science.
-        </li>
-        <li>
-          2026: Began building MChan, a university community platform, and led its backend and system design using Rust, Axum, SQLx, SQLite, and Docker.
-        </li>
-        <li>
-          September 2026: Begin the Bachelor of Electrical Engineering programme at Universiti Malaya.
+          September 2026: Begin the Bachelor of Electrical Engineering programme
+          at Universiti Malaya.
         </li>
       </ul>
+      </div>
+
+      <script>
+        const copyButton = document.querySelector("#copy-timeline");
+
+        copyButton.addEventListener("click", async () => {
+          try {
+            await navigator.clipboard.writeText(
+              document.querySelector("#timeline").innerText,
+            );
+            copyButton.textContent = "Copied";
+          } catch {
+            copyButton.textContent = "Copy failed";
+          }
+        });
+      </script>
     </main>
   </body>
 </html>
