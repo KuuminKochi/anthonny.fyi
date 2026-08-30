@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json.schemastore.org/wrangler.json",
+  "name": "anthonny-fyi",
+  "compatibility_date": "2026-08-30",
+  "assets": {
+    "directory": "."
+  }
+}
