@@ -1,0 +1,39 @@
+.tree,
+.tree .children {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tree a,
+.tree summary {
+  line-height: 1.6;
+}
+
+.tree details {
+  width: 100%;
+}
+
+.tree summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.tree summary::-webkit-details-marker {
+  display: none;
+}
+
+.tree .children {
+  margin-left: 2ch;
+  padding-left: 1ch;
+  border-left: 1px solid currentColor;
+}
+
+.tree a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.tree a:hover {
+  text-decoration: underline;
+}
