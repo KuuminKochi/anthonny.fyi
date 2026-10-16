@@ -46,6 +46,15 @@
   content: "▾ ";
 }
 
-main {
+body {
+  margin: 2rem auto;
+  padding: 0 1rem;
   max-width: 70ch;
+  line-height: 1.5;
+  font-family: Georgia, serif;
+}
+
+h1 a {
+  color: inherit;
+  text-decoration: none;
 }
