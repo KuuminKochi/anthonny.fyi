@@ -7,7 +7,7 @@
       name="description"
       content="MChan is a server-rendered anonymous Malaysian higher-education imageboard with human moderation and a small Rust and SQLite stack."
     />
-    <link rel="canonical" href="https://anthonny-fyi.pages.dev/work/mchan/" />
+    <link rel="canonical" href="https://anthonny.fyi/work/mchan/" />
     <title>MChan | Anthonny Ng</title>
     <link href="/css/style.css" rel="stylesheet" />
   </head>
@@ -36,6 +36,13 @@
         persistent pseudonyms. The application is server-rendered, so the core
         experience does not depend on a frontend framework, Node, PostgreSQL,
         Redis, or object storage.
+      </p>
+
+      <p>
+        I lead MChan's system design. I built <code>mchan-core</code>, with
+        contributions from realmxrza, along with the Telegram bridge, image
+        processor, and operations tooling. The Miya screening service is built
+        mainly by JavanMyna.
       </p>
 
       <h3>Moderation and privacy</h3>
@@ -67,15 +74,27 @@
         they are absent. The <code>mchan-image</code> processor validates JPEG,
         PNG, and WebP uploads; if it is disabled or unavailable, text-only
         posting continues. Miya can allow, flag, or block text, but it never
-        replaces human moderation, and an unavailable screening service records
-        an audit note rather than silently blocking a post.
+        replaces human moderation. A flagged post is held hidden until a
+        moderator approves it, and an unavailable screening service publishes
+        the post with an audit note rather than silently blocking it.
       </p>
       <p>
-        Optional companion services include <code>mchan-ops</code> for separate
-        operations tooling and <code>mchan-telegram</code> for Telegram tooling.
-        The <code>mchan-core</code> service also provides authenticated Discord
-        moderation and best-effort Discord report notifications. These support
-        staff workflows without becoming requirements for public reading.
+        <code>mchan-telegram</code> brings the boards to Telegram. One bot takes
+        anonymous submissions in private chat and sends them through the same
+        posting pipeline as the web, including bans, rate limits, Miya, and
+        moderation. Each board is then projected into its own read-only
+        confession channel. Raw Telegram identities are never stored. The
+        bridge serves eight UM confession channels, which have about 2.2k
+        active members.
+      </p>
+      <p>
+        <code>mchan-ops</code> monitors the services, host, and backups.
+        It and the Telegram bridge deploy only after CI passes: a fixed-tag
+        image is shipped to a restricted SSH receiver, and a candidate container
+        is promoted only after its health check passes. The
+        <code>mchan-core</code> service also provides authenticated Discord moderation and best-effort Discord report
+        notifications. These support staff workflows without becoming
+        requirements for public reading.
       </p>
 
       <h3>Boundaries</h3>

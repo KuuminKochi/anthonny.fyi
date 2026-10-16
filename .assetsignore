@@ -1,0 +1,7 @@
+.assetsignore
+.git
+.gitignore
+tmp/
+boilerplates/
+AGENTS.md
+wrangler.jsonc

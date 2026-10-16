@@ -17,7 +17,7 @@ introduce JavaScript behavior, a framework, or a build system.
 - Current projects appear in `work/` before archived games in `work/games/` and
   older projects in `work/older/`.
 - Every page has a specific description meta tag and a canonical URL on
-  `https://anthonny-fyi.pages.dev/`. Internal links are slash-terminated,
+  `https://anthonny.fyi/`. Internal links are slash-terminated,
   root-relative URLs.
 
 ## Key Directories
