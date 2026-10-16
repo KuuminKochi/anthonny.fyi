@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="KuumIRC, Anthonny Ng's opinionated browser IRC client for UM, built on Ergo and the soju bouncer."
+    />
+    <link rel="canonical" href="https://anthonny.fyi/work/small/kuumirc/" />
+    <title>KuumIRC | Anthonny Ng</title>
+    <link href="/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/">Anthonny.</a></h1>
+    </header>
+
+    <main>
+      <h2>KuumIRC</h2>
+      <p>
+        KuumIRC is an opinionated IRC client for UM that runs in the browser
+        as a small web app. I built it in September 2026. It connects over a
+        WebSocket and uses IRCv3 chat history, so a session and its history
+        persist instead of disappearing when the tab closes.
+      </p>
+
+      <p>
+        On top of plain IRC it adds registration, image and video attachments
+        with upload progress, drawings made with tldraw and posted into chat,
+        channel moderation slash commands, and tab controls for hiding
+        channels. A small command-line script lets a bot or agent account join
+        a channel with a normal login.
+      </p>
+
+      <p>
+        The server side is a separate repository: an Ergo IRC server behind a
+        soju bouncer, a sign-up service, and nginx, all run with Docker
+        Compose. Uploaded media goes through the same <code>mchan-image</code>
+        processor that <a href="/work/mchan/">MChan</a> uses.
+      </p>
+
+      <p>
+        Source:
+        <a href="https://github.com/KuuminKochi/KuumIRC">client</a> ·
+        <a href="https://github.com/KuuminKochi/kuumirc-server">server</a>.
+      </p>
+      <p><a href="/work/small/">Back to small projects</a> · <a href="/work/">Back to work</a></p>
+    </main>
+  </body>
+</html>

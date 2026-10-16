@@ -14,8 +14,8 @@ introduce JavaScript behavior, a framework, or a build system.
   template engine, shared include system, or generated data.
 - Every content directory receives an `index.html`. Pages repeat the home
   header, include a `main` region, and load `/css/style.css`.
-- Current projects appear in `work/` before archived games in `work/games/` and
-  older projects in `work/older/`.
+- Current projects appear in `work/` before small projects in `work/small/`,
+  archived games in `work/games/`, and older projects in `work/older/`.
 - Every page has a specific description meta tag and a canonical URL on
   `https://anthonny.fyi/`. Internal links are slash-terminated,
   root-relative URLs.
@@ -25,6 +25,7 @@ introduce JavaScript behavior, a framework, or a build system.
 - `about/`: personal profile page.
 - `timeline/`: chronological content.
 - `work/`: current project index and detail pages.
+- `work/small/`: small projects and contributions.
 - `work/games/`: archived game pages.
 - `work/older/`: archived earlier-work pages.
 - `css/`: shared site styling.
